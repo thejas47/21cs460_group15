@@ -1,76 +1,105 @@
-<p style="margin-left:40px"><span style="font-family:Calibri,sans-serif"><span style="color:#e74c3c"><strong><span style="font-size:20.0pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Personality Prediction Using Machine Learning</span></strong></span><br />
-<span style="color:#95a5a6"><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; By Thejas and Anujith</span></span><br />
-<br />
-<span style="color:#8e44ad; font-size:11pt"><span style="font-size:18.0pt">Introduction</span></span></span><br />
-&nbsp;</p>
-
-<p style="margin-left:40px"><span style="font-size:14.0pt">MBTI is a test that uses a questionnaire to classify the personality using 4 scales, into 16.&nbsp; Even though MBTI is criticized as pseudo-science, it can be applied broadly to personalize Ads or to recommend videos in an OTT platform.</span></p>
-
-<p style="margin-left:40px"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">The shortcoming of a traditional MBTI test are-</span></span></span></p>
-
-<ul>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">The questionnaire is forced choice and will be time consuming.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Answers can be biased due to individual expectations.</span></span></span><br />
+<p style="margin-left:40px"><span style="font-family:Calibri,sans-serif"><span style="color:#e74c3c"><strong><span style="font-size:20.0pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Personality Prediction Using Machine Learning</span></strong>
+	</span>
+	<br /> <span style="color:#95a5a6"><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; By Thejas and Anujith</span></span>
 	<br />
-	<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">So we are trying to use an efficient and accurate ML algorithm to scan media posts by individuals and predict these MBTI parameters.</span></span></span></li>
-</ul>
-
-<p style="margin-left:40px"><br />
-<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">Plan</span></span></span></span><br />
-&nbsp;</p>
-
+	<br /> <span style="color:#8e44ad; font-size:11pt"><span style="font-size:18.0pt">Introduction</span></span>
+	</span>
+	<br /> &nbsp;</p>
+<p style="margin-left:40px"><span style="font-size:14.0pt">MBTI is a test that uses a questionnaire to classify the personality using 4 scales, into 16.&nbsp; Even though MBTI is criticized as pseudo-science, it can be applied broadly to personalize Ads or to recommend videos in an OTT platform.</span></p>
+<p style="margin-left:40px"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">The shortcoming of a traditional MBTI test are-</span></span>
+	</span>
+</p>
 <ul>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Pre-processing data: The raw data gets converted to an easier to work with form. (Letters gets converted to lowercase, URLs are removed, MBTI references are removed and its lemmatized.)</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Splitting the dataset into two variables to work with, one set of binary MBTI and the other set will be posts.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Feature vector generation: We plan to use CountVectorizer and TF-IDF to weigh the words and remove junk.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Running a tweaked XGboost for an optimal result, in terms of accuracy.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Comparing our accuracy with other implementations that have already being done like Recurrent neural networks and logistic regressions and analyzing what could have been changed for an improved prediction.</span></span></span></li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">The questionnaire is forced choice and will be time consuming.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Answers can be biased due to individual expectations.</span></span>
+		</span>
+		<br />
+		<br /> <span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">So we are trying to use an efficient and accurate ML algorithm to scan media posts by individuals and predict these MBTI parameters.</span></span>
+		</span>
+	</li>
 </ul>
-
-<p style="margin-left:40px">&nbsp;</p>
-
-<p style="margin-left:40px">&nbsp;</p>
-
-<p style="margin-left:40px"><span style="color:#8e44ad"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">Dataset</span></span></span></span><br />
-&nbsp;</p>
-
+<p style="margin-left:40px">
+	<br /> <span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">Plan</span></span>
+	</span>
+	</span>
+	<br /> &nbsp;</p>
 <ul>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">We are using a Dataset provided by Kaggle.com. It consists of 8675 rows and 2 columns with the MBTI personality codes and posts of users from </span><a href="http://personalitycafe.com/forum/" style="color:blue; text-decoration:underline"><span style="font-size:14.0pt">PersonalityCafe</span></a><a href="http://personalitycafe.com/forum/" style="color:blue; text-decoration:underline"><span style="font-size:14.0pt"> forum</span></a><span style="font-size:14.0pt">.</span></span></span></li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Pre-processing data: The raw data gets converted to an easier to work with form. (Letters gets converted to lowercase, URLs are removed, MBTI references are removed and its lemmatized.)</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Splitting the dataset into two variables to work with, one set of binary MBTI and the other set will be posts.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Feature vector generation: We plan to use CountVectorizer and TF-IDF to weigh the words and remove junk.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Running a tweaked XGboost for an optimal result, in terms of accuracy.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Comparing our accuracy with other implementations that have already being done like Recurrent neural networks and logistic regressions and analyzing what could have been changed for an improved prediction.</span></span>
+		</span>
+	</li>
+</ul>
+<p style="margin-left:40px">&nbsp;</p>
+<p style="margin-left:40px">&nbsp;</p>
+<p style="margin-left:40px"><span style="color:#8e44ad"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">Dataset</span></span>
+	</span>
+	</span>
+	<br /> &nbsp;</p>
+<ul>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">We are using a Dataset provided by Kaggle.com. It consists of 8675 rows and 2 columns with the MBTI personality codes and posts of users from </span><a href="http://personalitycafe.com/forum/" style="color:blue; text-decoration:underline"><span style="font-size:14.0pt">PersonalityCafe</span></a><a href="http://personalitycafe.com/forum/" style="color:blue; text-decoration:underline"><span style="font-size:14.0pt"> forum</span></a><span style="font-size:14.0pt">.</span></span>
+		</span>
+	</li>
 	<li>&nbsp;</li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">https://www.kaggle.com/datasnaek/mbti-type</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Reason for using this dataset is because the MBTI for the users are already labeled. So the result can be analyzed for accuracy.</span></span></span></li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">https://www.kaggle.com/datasnaek/mbti-type</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Reason for using this dataset is because the MBTI for the users are already labeled. So the result can be analyzed for accuracy.</span></span>
+		</span>
+	</li>
 </ul>
-
 <p style="margin-left:40px">&nbsp;</p>
-
-<p style="margin-left:40px"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">Midway expectation</span></span></span></span><br />
-&nbsp;</p>
-
+<p style="margin-left:40px"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">Midway expectation</span></span>
+	</span>
+	</span>
+	<br /> &nbsp;</p>
 <ul>
-	<li><span style="font-size:14.0pt">We are hoping to finish the pre-processing of the data and start feature vector generation.</span></li>
+	<li><span style="font-size:14.0pt">For Midway, we are planning to complete the pre-processing, feature engineering and first iteration of XGboost implementation.
+ 
+</span></li>
 </ul>
-
-<p style="margin-left:40px"><br />
-<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">Work division</span></span></span></span><br />
-&nbsp;</p>
-
+<p style="margin-left:40px">
+	<br /> <span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">Work division</span></span>
+	</span>
+	</span>
+	<br /> &nbsp;</p>
 <ul>
 	<li><span style="font-size:14.0pt">Website management, Pre-processing and XGboost implementation would be done by Thejas.</span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Feature engineering and analysis of our models to others would be done by Anujith.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Final report will be done by us both.</span></span></span></li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Feature engineering and analysis of our models to others would be done by Anujith.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Final report will be done by us both.</span></span>
+		</span>
+	</li>
 </ul>
-
-<p style="margin-left:40px"><br />
-<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">References</span></span></span></span><br />
-&nbsp;</p>
-
+<p style="margin-left:40px">
+	<br /> <span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#8e44ad"><span style="font-size:18.0pt">References</span></span>
+	</span>
+	</span>
+	<br /> &nbsp;</p>
 <ul>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Abidin, N. H. Z., Remli, M. A., Ali, N. M., Phon, D. N. E., Yusoff, N., Adli, H. K., &amp; Busalim, A. H. (2020). Improving Intelligent Personality Prediction using Myers-Briggs Type Indicator and Random Forest Classifier.&nbsp;<em>INTERNATIONAL JOURNAL OF ADVANCED COMPUTER SCIENCE AND APPLICATIONS</em>.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Hernandez, R. K., &amp; Scott, I. (2017). Predicting Myers-Briggs type indicator with text. In&nbsp;<em>31st Conference on Neural Information Processing Systems (NIPS 2017)</em>.</span></span></span></li>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">J, M., 2017.&nbsp;<em>(MBTI) Myers-Briggs Personality Type Dataset</em>. [online] Kaggle.com. Available at: &lt;https://www.kaggle.com/datasnaek/mbti-type&gt;</span></span></span></li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Abidin, N. H. Z., Remli, M. A., Ali, N. M., Phon, D. N. E., Yusoff, N., Adli, H. K., &amp; Busalim, A. H. (2020). Improving Intelligent Personality Prediction using Myers-Briggs Type Indicator and Random Forest Classifier.&nbsp;<em>INTERNATIONAL JOURNAL OF ADVANCED COMPUTER SCIENCE AND APPLICATIONS</em>.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Hernandez, R. K., &amp; Scott, I. (2017). Predicting Myers-Briggs type indicator with text. In&nbsp;<em>31st Conference on Neural Information Processing Systems (NIPS 2017)</em>.</span></span>
+		</span>
+	</li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">J, M., 2017.&nbsp;<em>(MBTI) Myers-Briggs Personality Type Dataset</em>. [online] Kaggle.com. Available at: &lt;https://www.kaggle.com/datasnaek/mbti-type&gt;</span></span>
+		</span>
+	</li>
 </ul>
-
 <p style="margin-left:40px">&nbsp;</p>
-
-<p style="margin-left:40px"><br />
-&nbsp;</p>
+<p style="margin-left:40px">
+	<br /> &nbsp;</p>
