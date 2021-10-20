@@ -103,3 +103,58 @@
 <p style="margin-left:40px">&nbsp;</p>
 <p style="margin-left:40px">
 	<br /> &nbsp;</p>
+
+<h2 style="padding-left: 30px;"><strong>What we have done till midway</strong></h2>
+<ul>
+<li>We analyzed the dataset using the methods mentioned in the first reference to obtain a visual representation of the data.<br /><br />Then we used the cleaning and processing tools used in the second reference to obtain a workable dataset.</li>
+<li>We implemented an XGboost model</li>
+</ul>
+<h3 style="padding-left: 30px;"><br /><strong>Brief Analysis of References we used:</strong><br /><br /><strong>-Improving Intelligent Personality Prediction using Myers-Briggs Type Indicator and Random Forest Classifier</strong></h3>
+<ul>
+<li>The paper implements a Random Forest classifier and compares the result with some other references. The data set used is the same as ours, taken from Kaggle.</li>
+<li>The first stage was exploratory data analysis and based on this, seven additional features were generated such as words per comment, ellipsis per comment, links per comment, etc.</li>
+<li>The Pearson correlation between words per comment and ellipsis per comment was analyzed to see the differences between the MBTI types.</li>
+<li>INFJ, INTP, and ENFP showed high correlation and this was used later to train data.</li>
+<li>Data were pre-processed, vectorized and the traits were binarized.</li>
+<li>Sci-kit learn&rsquo;s internal module train_test_split () was used to split the data into testing and training.</li>
+<li>For model Numpy and skilearn was used to build the Random Forest, Logistic Regression, KNN Neighbor, and Support Vector Machine (SVM) models.</li>
+<li>Random Forest had 100% accuracy on all types followed by KNN neighbor, Logistic regression, and Support vector machine all having overall accuracies less than 41%.</li>
+</ul>
+<h3 style="padding-left: 30px;"><br /><strong>-Predicting Myers-Briggs Type Indicator with Text Classification</strong></h3>
+<ul>
+<li>The second paper also uses the same dataset (from Kaggle) but they clean the data to fit the proportionality of the MBTI types with that of the general population. Pre-processing includes selective word removal. Essentially NLTK was used to filter out &ldquo;stop words&rdquo; and links to other websites were also removed.</li>
+<li>Also if the data set is taken from a website related to MBTI or related sites then, the types are removed to prevent the model from cheating. Then all the words are lemmatized to their root form, and the most common 2500 words are tokenized.</li>
+<li>In model building, for the embedding layer, they use an embedding matrix in the form of a dictionary mapping that maps every lemmatized word to a 50-dimensional GloVe representation of the word.</li>
+<li>Various Recurrent Neural Networks (RNN) [like simple RNN, GRU, LSTM, and bidirectional LSTM] were used and they found LSTM to give the best result.</li>
+<li>In the result, user classification was more accurate compared to post classification. The accuracy of post-classification is 8.73% whereas that of user classification is 20.77%.</li>
+</ul>
+<h3 style="padding-left: 30px;"><strong>Back to our work</strong></h3>
+<p style="padding-left: 30px;">First, we plotted a visual representation of personality distribution to get an intuitive idea. The distribution is a bit skewed but we planned to not normalize with external weightage.</p>
+<p><img src="https://myfiles.space/user_files/97356_3555ed206a5f1902/1634488795_midway/1634488795_midway-1.png" alt="" width="602" height="280" /></p>
+<ul>
+<li>New columns were added for the type Indicators and the distribution was again plotted</li>
+</ul>
+<p><img src="https://myfiles.space/user_files/97356_3555ed206a5f1902/1634488795_midway/1634488795_midway-2.png" alt="C:\Users\DELL\AppData\Local\Microsoft\Windows\INetCache\Content.Word\z2.png" width="404" height="269" />&nbsp;</p>
+<h3 style="padding-left: 30px;">&nbsp;<strong>Preparation and Pre-processing of data</strong></h3>
+<ul>
+<li>The type indicators were converted to binaries for better implementation.</li>
+<li>URLs and MTBI strings are removed.</li>
+<li>Every word was lemmatized.</li>
+<li>Vectorization was done using CountVectorizer and TfidfTransformer (Words of frequency 10%-70 % are kept and rest are filtered).</li>
+<li>Natural Language Toolkit was used to remove the stopwords. (Stopwords are&nbsp;a set of commonly used words in a language. Eg: &ldquo;a&rdquo;, &ldquo;the&rdquo;, &ldquo;is&rdquo;, &ldquo;are&rdquo; etc.)</li>
+</ul>
+<p><img src="&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/jdyPjub&quot; data-context=&quot;false&quot; &gt;&lt;a href=&quot;//imgur.com/a/jdyPjub&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;" alt="" /></p>
+<p style="padding-left: 30px;">https://imgur.com/l0t7Hac</p>
+<h3 style="padding-left: 30px;"><strong>Finally we implemented XGBoost model for the following result:&nbsp;<br /><br /></strong></h3>
+<ol>
+<li>Introversion (I) / Extroversion (E) Accuracy: 77.33%</li>
+<li>Intuition (N) &ndash; Sensing (S) Accuracy: 86.13%</li>
+<li>Feeling (F) - Thinking (T) Accuracy: 71.74%<img src="&lt;blockquote class=&quot;imgur-embed-pub&quot; lang=&quot;en&quot; data-id=&quot;a/jdyPjub&quot; data-context=&quot;false&quot; &gt;&lt;a href=&quot;//imgur.com/a/jdyPjub&quot;&gt;&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src=&quot;//s.imgur.com/min/embed.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;" alt="" /></li>
+<li>Judging (J) &ndash; Perceiving (P) Accuracy: 63.74%<br /><br /><br /></li>
+</ol>
+<h3 style="padding-left: 30px;"><strong>Future Goals</strong></h3>
+<ul>
+<li>We would like to fine-tune our XGmodel to obtain optimum results and do a thorough analysis on where we failed and what improvements can be done.</li>
+<li>Embed Jupyter notebook into HTML&nbsp;</li>
+</ul>
+<iframe src="https://onedrive.live.com/embed?cid=E8D4C8F6FF24D29D&amp;resid=E8D4C8F6FF24D29D%21537&amp;authkey=AEL_vFLBTOCu2VI&amp;em=2&amp;wdAr=1.3333333333333333" width="1026px" height="793px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
